@@ -15,15 +15,22 @@ function calculate() {
   nbv = parseFloat(nbv);
   
   var calcUnits = (currentUnits/totalUnits) * lifeUnits;
-  console.log('Life units used in current period: ' + calcUnits);
   var calcLife = lifeUsed + calcUnits;
-  console.log('Total Life used at end of current period: ' + calcLife);
   var calcAccDepn = gbv - nbv;
-  console.log('Desired acc depreciation: ' + calcAccDepn);
   var calcPerDepn = priorNBV - nbv;
-  console.log('Period depreciation for the current period: ' + calcPerDepn);
                    
   var calcTotalLife = (gbv/calcAccDepn)*calcLife
-  console.log(calcTotalLife);
+  
+  var isNumber = isNaN(calcTotalLife);
+  var isFinite = Number.isFinite(calcTotalLife);
+  
+  if ((isNumber === true) || (isFinite === false)) {
+    document.getElementById('fail').src = "error.png";
+    var img = document.querySelector('#fail');
+    img.classList.remove('hidden');
+    document.getElementById('result').innerHTML = 'Please enter valid figures and re-submit';
+  } else {
+    document.getElementById('result').innerHTML = 'Total relife required is: '+calcTotalLife;
+  };
   
 }

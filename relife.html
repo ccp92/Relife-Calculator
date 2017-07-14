@@ -3,62 +3,50 @@
   <head>
     <title>Relife Calculator</title>
     <script src="relife.js"></script>
+    <link rel="stylesheet" href="relife.css">
   </head>
   <body>
+    <h1>Relife Calculator</h1>
     <form>
       <table>
         <tr>
-          <td>
-            GBV:
-          </td>
+          <td>GBV:</td>
           <td>
             <input type="number" name="gbv">
           </td>
         </tr>
         <tr>
-          <td>
-            Previous Period Life Used:
-          </td>
+          <td>Previous Period Life Used:</td>
           <td>
             <input type="number" name="lifeUsed">
           </td>
         </tr>
         <tr>
-          <td>
-            Previous Period Closing NBV:
-          </td>
+          <td>Previous Period Closing NBV:</td>
           <td>
             <input type="number" name ="priorNBV">
           </td>
         </tr>
         <tr>
-          <td>
-            Total Units in Year:
-          </td>
+          <td>Total Units in Year:</td>
           <td>
             <input type="number" name="totalUnits">
           </td>
         </tr>
         <tr>
-          <td>
-            Units in Current Period:
-          </td>
+          <td>Units in Current Period:</td>
           <td>
             <input type="number" name="currentUnits">
           </td>
         </tr>
         <tr>
-          <td>
-            Life Units in Year (See system configuration):
-          </td>
+          <td>Life Units in Year (See system configuration)<br>(1 if using years, 12 if using months, 4 if using quarters etc…)</td>
           <td>
             <input type="number" name="lifeUnits">
           </td>
         </tr>
         <tr>
-          <td>
-            Desired NBV at the end of current period:
-          </td>
+          <td>Desired NBV at the end of current period:</td>
           <td>
             <input type="number" name="nbv">
           </td>
@@ -66,5 +54,7 @@
       </table>
       <input type="button" value="Sumbit" onclick="calculate();"/>
     </form>
+    <h2 id="result"></h2>
+    <img class="hidden" id="fail"/>
   </body>
 </html>
